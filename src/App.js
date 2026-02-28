@@ -247,18 +247,18 @@ export default function LogicStreamApp() {
     };
   }, []);
 
-  // --- THIS IS THE ONLY PART THAT CHANGED ---
+  // --- THE FIXED SHOPIFY LINK WITH THE TRUE VARIANT ID ---
   const handleInitializeTransaction = () => {
     setIsInitializing(true);
     console.log("[SYS] Initiating secure handshake...");
     setTimeout(() => {
       console.log("[OK] Transaction ready. Redirecting...");
-      // Teleports user straight to Shopify USD checkout
+      // Teleports user straight to Shopify USD checkout using the Variant ID from your JSON file
       window.location.href =
-        "https://logicstream-ai.myshopify.com/cart/14909048521067:1?payment_gateway=paypal";
+        "https://logicstream-ai.myshopify.com/cart/52945117217131:1?payment_gateway=paypal";
     }, 2000);
   };
-  // ------------------------------------------
+  // --------------------------------------------------------
 
   return (
     <div className="relative min-h-screen bg-[#020202] text-white overflow-hidden selection:bg-indigo-500/30 font-sans">
