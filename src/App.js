@@ -247,17 +247,18 @@ export default function LogicStreamApp() {
     };
   }, []);
 
+  // --- THIS IS THE ONLY PART THAT CHANGED ---
   const handleInitializeTransaction = () => {
     setIsInitializing(true);
     console.log("[SYS] Initiating secure handshake...");
     setTimeout(() => {
       console.log("[OK] Transaction ready. Redirecting...");
-      setIsInitializing(false);
-      alert(
-        "UI MOCK: The user would instantly teleport to the Shopify checkout screen here."
-      );
+      // Teleports user straight to Shopify USD checkout
+      window.location.href =
+        "https://logicstream-ai.myshopify.com/cart/14909048521067:1?payment_gateway=paypal";
     }, 2000);
   };
+  // ------------------------------------------
 
   return (
     <div className="relative min-h-screen bg-[#020202] text-white overflow-hidden selection:bg-indigo-500/30 font-sans">
@@ -369,7 +370,7 @@ export default function LogicStreamApp() {
             </div>
           </div>
 
-          {/* NEW: TELEMETRY DASHBOARD */}
+          {/* TELEMETRY DASHBOARD */}
           <div className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
             {[
               { label: "Avg Query Latency", value: "12ms", icon: Zap },
@@ -394,7 +395,7 @@ export default function LogicStreamApp() {
         </div>
       </main>
 
-      {/* NEW: API PREVIEW */}
+      {/* API PREVIEW */}
       <section
         id="developers"
         className="py-24 px-6 relative z-10 border-y border-white/5 bg-white/[0.01]"
@@ -514,7 +515,7 @@ export default function LogicStreamApp() {
         </div>
       </section>
 
-      {/* NEW: CHANGELOG TIMELINE */}
+      {/* CHANGELOG TIMELINE */}
       <section className="py-24 px-6 relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center gap-3 mb-12">
